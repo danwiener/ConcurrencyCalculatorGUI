@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,12 +16,20 @@ namespace ConcurrencyCalculatorGUI
 		// Data components
 		Concurrency c = new Concurrency();
 
+		object myLock = new object();
+
+		// Data fields
+
 		double sumParameter;
 
 		public ConcurrencyCalculatorGUI()
 		{
 			InitializeComponent();
+			//Binding binding = new Binding(c.timeElapsedStr, c, "Text", true, DataSourceUpdateMode.OnPropertyChanged, ControlUpdateMode.Never);
+			//textBox4.DataBindings.Add(binding);
+
 		}
+
 
 		private void exitToolStripMenuItem_Click(object sender, EventArgs e)
 		{
@@ -42,23 +51,25 @@ namespace ConcurrencyCalculatorGUI
 			
 		}
 
+		public void Alert()
+		{
+			Alert frm = new Alert(); // New alert window
+			frm.showAlert();
+		}
 		private void button1_Click(object sender, EventArgs e)
 		{
+			
+			Stopwatch sw = new Stopwatch();
 			try
 			{
-				sumParameter = Double.Parse(textBox1.Text);
+				sumParameter = Double.Parse($"{textBox1.Text}");
 				c.SumSynchronously(sumParameter);
 				
-
 			}
 			catch (FormatException fe)
 			{
-				Console.WriteLine("Invalid input. Please enter a valid number up to 100 billion.");
-				textBox1.Text = "Invalid input. Please enter a valid number up to 100 billion.";
-
-				var formPopup = new Form();
-				formPopup.Show(this);
-				formPopup.Text = "Invalid input.";
+				this.Alert();
+				textBox1.ResetText();
 			}
 		}
 
@@ -67,6 +78,24 @@ namespace ConcurrencyCalculatorGUI
 
 		}
 
+		private void textBox3_TextChanged(object sender, EventArgs e)
+		{
 
+		}
+
+		private void textBox4_TextChanged(object sender, EventArgs e)
+		{
+
+		}
+
+		private void button2_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void label2_Click(object sender, EventArgs e)
+		{
+
+		}
 	}
 }

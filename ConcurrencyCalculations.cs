@@ -10,16 +10,22 @@ public class Concurrency
 	private const double OneHundredMillion = 100_000_000;
 	private const double TenBillion = 10_000_000_000;
 
-	public Stopwatch sw;
-
 	private double _sum; // sum of values
 
 	private object myLock = new object(); // for locking _sum
 
+	public TimeSpan timeElapsed;
+	public string timeElapsedStr;
+
+	public string TimeElapsed
+	{
+		get
+		{
+			return timeElapsedStr;
+		}
+	}
 	// Time property
 	public TimeSpan ConcurrentTimeElapsed { get; set; }
-
-	public Stopwatch StopWatch { get { return sw; } set { sw = value; } }
 
 	// This method will concurrently run 8 threads each summing userSpecifiedSum/8 numbers to userSpecifiedSum
 	public async void AddToTenBillionConcurrently(double sumTo)
@@ -91,11 +97,18 @@ public class Concurrency
 	public void SumSynchronously(double sumTo)
 	{
 		double sum = 0;
-		sw = Stopwatch.StartNew();
+		Stopwatch sw = Stopwatch.StartNew();
+
 		//double sum = (TenBillion * (TenBillion + 1)) / 2;     // Using Gauss Summation
 		for (double i = 1; i <= sumTo; i++)
 		{
 			sum += i;
+			lock (myLock)
+			{
+				timeElapsedStr = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
+					sw.Elapsed.Hours, sw.Elapsed.Minutes, sw.Elapsed.Seconds,
+					sw.Elapsed.Milliseconds / 10);
+			}
 		}
 		sw.Stop();
 
