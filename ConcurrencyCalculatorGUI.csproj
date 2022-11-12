@@ -62,6 +62,7 @@
     <Compile Include="ConcurrencyCalculatorGUI.Designer.cs">
       <DependentUpon>ConcurrencyCalculatorGUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="ILineEngine.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Alert.resx">

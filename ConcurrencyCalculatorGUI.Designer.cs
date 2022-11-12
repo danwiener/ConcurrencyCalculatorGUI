@@ -28,47 +28,19 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-			this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.components = new System.ComponentModel.Container();
 			this.SynchButton = new System.Windows.Forms.Button();
 			this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-			this.textBox2 = new System.Windows.Forms.TextBox();
+			this.AsynchTextBox = new System.Windows.Forms.TextBox();
 			this.AsynchButton = new System.Windows.Forms.Button();
 			this.SynchLabel = new System.Windows.Forms.Label();
 			this.AsynchLabel = new System.Windows.Forms.Label();
-			this.label4 = new System.Windows.Forms.Label();
-			this.textBox1 = new System.Windows.Forms.TextBox();
-			this.menuStrip1.SuspendLayout();
+			this.SumToLabel = new System.Windows.Forms.Label();
+			this.SynchTextBox = new System.Windows.Forms.TextBox();
+			this.SynchTimer = new System.Windows.Forms.Timer(this.components);
+			this.panel1 = new System.Windows.Forms.Panel();
+			this.ResetButton = new System.Windows.Forms.Button();
 			this.SuspendLayout();
-			// 
-			// menuStrip1
-			// 
-			this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
-			this.menuStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
-			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
-			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-			this.menuStrip1.Name = "menuStrip1";
-			this.menuStrip1.Padding = new System.Windows.Forms.Padding(26, 9, 0, 9);
-			this.menuStrip1.Size = new System.Drawing.Size(1344, 54);
-			this.menuStrip1.TabIndex = 0;
-			this.menuStrip1.Text = "menuStrip1";
-			// 
-			// fileToolStripMenuItem
-			// 
-			this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.exitToolStripMenuItem});
-			this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-			this.fileToolStripMenuItem.Size = new System.Drawing.Size(71, 36);
-			this.fileToolStripMenuItem.Text = "File";
-			// 
-			// exitToolStripMenuItem
-			// 
-			this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-			this.exitToolStripMenuItem.Size = new System.Drawing.Size(184, 44);
-			this.exitToolStripMenuItem.Text = "Exit";
-			this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
 			// 
 			// SynchButton
 			// 
@@ -78,27 +50,27 @@
 			this.SynchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.SynchButton.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.SynchButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
-			this.SynchButton.Location = new System.Drawing.Point(604, 76);
+			this.SynchButton.Location = new System.Drawing.Point(604, 26);
 			this.SynchButton.Name = "SynchButton";
 			this.SynchButton.Size = new System.Drawing.Size(165, 34);
 			this.SynchButton.TabIndex = 3;
-			this.SynchButton.Text = "Solve Synchronously";
+			this.SynchButton.Text = "Sum Synchronously";
 			this.SynchButton.UseVisualStyleBackColor = false;
 			this.SynchButton.Click += new System.EventHandler(this.button1_Click);
 			// 
-			// textBox2
+			// AsynchTextBox
 			// 
-			this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(239)))));
-			this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.textBox2.Font = new System.Drawing.Font("Microsoft YaHei UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.textBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
-			this.textBox2.Location = new System.Drawing.Point(201, 115);
-			this.textBox2.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
-			this.textBox2.Multiline = true;
-			this.textBox2.Name = "textBox2";
-			this.textBox2.Size = new System.Drawing.Size(398, 34);
-			this.textBox2.TabIndex = 5;
-			this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+			this.AsynchTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(239)))));
+			this.AsynchTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.AsynchTextBox.Font = new System.Drawing.Font("Microsoft YaHei UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.AsynchTextBox.ForeColor = System.Drawing.Color.LightGray;
+			this.AsynchTextBox.Location = new System.Drawing.Point(303, 65);
+			this.AsynchTextBox.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+			this.AsynchTextBox.Multiline = true;
+			this.AsynchTextBox.Name = "AsynchTextBox";
+			this.AsynchTextBox.Size = new System.Drawing.Size(296, 34);
+			this.AsynchTextBox.TabIndex = 5;
+			this.AsynchTextBox.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
 			// 
 			// AsynchButton
 			// 
@@ -108,11 +80,11 @@
 			this.AsynchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.AsynchButton.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.AsynchButton.ForeColor = System.Drawing.Color.LightGray;
-			this.AsynchButton.Location = new System.Drawing.Point(604, 115);
+			this.AsynchButton.Location = new System.Drawing.Point(604, 65);
 			this.AsynchButton.Name = "AsynchButton";
 			this.AsynchButton.Size = new System.Drawing.Size(165, 34);
 			this.AsynchButton.TabIndex = 6;
-			this.AsynchButton.Text = "Solve Asynchronously";
+			this.AsynchButton.Text = "Sum Asynchronously";
 			this.AsynchButton.UseVisualStyleBackColor = false;
 			this.AsynchButton.Click += new System.EventHandler(this.button2_Click);
 			// 
@@ -120,11 +92,10 @@
 			// 
 			this.SynchLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(186)))), ((int)(((byte)(0)))));
 			this.SynchLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
-			this.SynchLabel.Location = new System.Drawing.Point(774, 76);
+			this.SynchLabel.Location = new System.Drawing.Point(774, 26);
 			this.SynchLabel.Name = "SynchLabel";
-			this.SynchLabel.Size = new System.Drawing.Size(398, 34);
+			this.SynchLabel.Size = new System.Drawing.Size(296, 34);
 			this.SynchLabel.TabIndex = 7;
-			this.SynchLabel.Text = "Time Elapsed: ";
 			this.SynchLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.SynchLabel.Click += new System.EventHandler(this.label2_Click);
 			// 
@@ -132,39 +103,67 @@
 			// 
 			this.AsynchLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(185)))), ((int)(((byte)(0)))));
 			this.AsynchLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
-			this.AsynchLabel.Location = new System.Drawing.Point(774, 115);
+			this.AsynchLabel.Location = new System.Drawing.Point(774, 65);
 			this.AsynchLabel.Name = "AsynchLabel";
-			this.AsynchLabel.Size = new System.Drawing.Size(398, 34);
+			this.AsynchLabel.Size = new System.Drawing.Size(296, 34);
 			this.AsynchLabel.TabIndex = 8;
-			this.AsynchLabel.Text = "Time Elapsed: ";
 			this.AsynchLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
-			// label4
+			// SumToLabel
 			// 
-			this.label4.AutoSize = true;
-			this.label4.BackColor = System.Drawing.Color.LightGray;
-			this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
-			this.label4.Location = new System.Drawing.Point(96, 95);
-			this.label4.Margin = new System.Windows.Forms.Padding(0);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(192, 57);
-			this.label4.TabIndex = 9;
-			this.label4.Text = "Sum To:";
-			this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.SumToLabel.AutoSize = true;
+			this.SumToLabel.BackColor = System.Drawing.Color.LightGray;
+			this.SumToLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
+			this.SumToLabel.Location = new System.Drawing.Point(198, 45);
+			this.SumToLabel.Margin = new System.Windows.Forms.Padding(0);
+			this.SumToLabel.Name = "SumToLabel";
+			this.SumToLabel.Size = new System.Drawing.Size(192, 57);
+			this.SumToLabel.TabIndex = 9;
+			this.SumToLabel.Text = "Sum To:";
+			this.SumToLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
-			// textBox1
+			// SynchTextBox
 			// 
-			this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(80)))), ((int)(((byte)(34)))));
-			this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.textBox1.Font = new System.Drawing.Font("Microsoft YaHei UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.textBox1.ForeColor = System.Drawing.Color.LightGray;
-			this.textBox1.Location = new System.Drawing.Point(201, 76);
-			this.textBox1.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
-			this.textBox1.Multiline = true;
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(398, 34);
-			this.textBox1.TabIndex = 2;
-			this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+			this.SynchTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(80)))), ((int)(((byte)(34)))));
+			this.SynchTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.SynchTextBox.Font = new System.Drawing.Font("Microsoft YaHei UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.SynchTextBox.ForeColor = System.Drawing.Color.LightGray;
+			this.SynchTextBox.Location = new System.Drawing.Point(303, 26);
+			this.SynchTextBox.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+			this.SynchTextBox.Multiline = true;
+			this.SynchTextBox.Name = "SynchTextBox";
+			this.SynchTextBox.Size = new System.Drawing.Size(296, 34);
+			this.SynchTextBox.TabIndex = 2;
+			this.SynchTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+			// 
+			// SynchTimer
+			// 
+			this.SynchTimer.Enabled = true;
+			this.SynchTimer.Interval = 10;
+			// 
+			// panel1
+			// 
+			this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.panel1.Location = new System.Drawing.Point(25, 150);
+			this.panel1.Name = "panel1";
+			this.panel1.Size = new System.Drawing.Size(1289, 578);
+			this.panel1.TabIndex = 10;
+			// 
+			// ResetButton
+			// 
+			this.ResetButton.BackColor = System.Drawing.Color.LightGray;
+			this.ResetButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+			this.ResetButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.ResetButton.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.ResetButton.Location = new System.Drawing.Point(1075, 45);
+			this.ResetButton.Name = "ResetButton";
+			this.ResetButton.Size = new System.Drawing.Size(100, 34);
+			this.ResetButton.TabIndex = 11;
+			this.ResetButton.Text = "Reset";
+			this.ResetButton.UseVisualStyleBackColor = false;
+			this.ResetButton.Click += new System.EventHandler(this.button1_Click_1);
 			// 
 			// ConcurrencyCalculatorGUI
 			// 
@@ -173,42 +172,39 @@
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
 			this.ClientSize = new System.Drawing.Size(1344, 740);
-			this.Controls.Add(this.label4);
+			this.Controls.Add(this.ResetButton);
+			this.Controls.Add(this.panel1);
+			this.Controls.Add(this.SumToLabel);
 			this.Controls.Add(this.AsynchLabel);
 			this.Controls.Add(this.SynchLabel);
 			this.Controls.Add(this.AsynchButton);
-			this.Controls.Add(this.textBox2);
+			this.Controls.Add(this.AsynchTextBox);
 			this.Controls.Add(this.SynchButton);
-			this.Controls.Add(this.textBox1);
-			this.Controls.Add(this.menuStrip1);
+			this.Controls.Add(this.SynchTextBox);
 			this.Font = new System.Drawing.Font("Microsoft YaHei UI", 16.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(115)))), ((int)(((byte)(115)))));
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-			this.MainMenuStrip = this.menuStrip1;
 			this.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
 			this.Name = "ConcurrencyCalculatorGUI";
 			this.Text = "Concurrency Calculator";
 			this.Load += new System.EventHandler(this.Form1_Load);
-			this.menuStrip1.ResumeLayout(false);
-			this.menuStrip1.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
 		}
 
 		#endregion
-
-		private System.Windows.Forms.MenuStrip menuStrip1;
-		private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
 		private System.Windows.Forms.Button SynchButton;
 		private System.ComponentModel.BackgroundWorker backgroundWorker1;
-		private System.Windows.Forms.TextBox textBox2;
+		private System.Windows.Forms.TextBox AsynchTextBox;
 		private System.Windows.Forms.Button AsynchButton;
-		private System.Windows.Forms.Label SynchLabel;
 		private System.Windows.Forms.Label AsynchLabel;
-		private System.Windows.Forms.Label label4;
-		private System.Windows.Forms.TextBox textBox1;
+		private System.Windows.Forms.Label SumToLabel;
+		private System.Windows.Forms.TextBox SynchTextBox;
+		internal System.Windows.Forms.Label SynchLabel;
+		private System.Windows.Forms.Timer SynchTimer;
+		private System.Windows.Forms.Panel panel1;
+		private System.Windows.Forms.Button ResetButton;
 	}
 }
 
